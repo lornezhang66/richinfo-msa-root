@@ -1,0 +1,20 @@
+server:
+  port: 3333
+spring:
+  application:
+    name: msa-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: msa-framework
+    api-b:
+      path: /api-b/**
+      serviceId: msa-framework
+    activiti-a:
+      path: /activiti-a/**
+      serviceId: ACTIVITI-EXAMPLE
